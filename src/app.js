@@ -2,9 +2,9 @@ const express = require("express");
 
 const app = express(); //creating our webserver 
 
-app.use("/test" , (req,res)=>{
-    res.send("Hello From the server");
-})
+// app.use("/test" , (req,res)=>{
+//     res.send("Hello From the server");
+// })
 
 app.use("/test2" , (req,res)=>{
     res.send("Hello hellow hello");
