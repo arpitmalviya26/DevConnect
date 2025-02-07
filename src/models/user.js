@@ -31,7 +31,7 @@ const userSchema = mongoose.Schema({
     },
     gender : {
         type : String,
-        required:false,
+        required:[true,'Enter gender'],
         enum :{values: ['Male', 'Female' , 'Gender'], message: `Value is not supported`} ,
     },
     skills:{

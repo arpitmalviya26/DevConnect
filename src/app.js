@@ -69,7 +69,7 @@ app.get('/profile' ,auth, async(req,res)=>{
     const data = await req.user;
     res.send(data); 
   }catch(err){ 
-    res.status(400).send("Enable To load Profile")
+    res.status(400).send("Enable To load Profile");
   }
 })
 
