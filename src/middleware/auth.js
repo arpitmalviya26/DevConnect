@@ -19,10 +19,8 @@ const auth = async (req,res,next)=>{
     req.user = UserData;
     next();
   }catch(err){
-    res.send("ERROR : "+ err.message);
+    res.status(401).json({message:"ERROR : "+err.message});
   }
 }
 
-module.exports = {
-  auth, 
-}
+module.exports = auth

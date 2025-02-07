@@ -4,6 +4,7 @@ const userSchema = mongoose.Schema({
     firstname : {
         type : String ,
         required : [true , 'Firstname is Required'],
+        minLength : ['4' , 'firstname should be greater than 4 characters'],
         maxLength:['20','firstname should be less than 20 characters'],
         match: [/^[a-zA-Z0-9_]+$/, 'Firstname can only contain letters, numbers, and underscores'],
     } ,
@@ -16,7 +17,7 @@ const userSchema = mongoose.Schema({
     emailId :{
         type : String,
         required:[true,'Entre mail'],
-        unique:[true,'EmailId already registered']
+        unique:[true,'emailId already registered']
     },
     password : {
         type : String ,
@@ -26,13 +27,13 @@ const userSchema = mongoose.Schema({
     },
     age:{
         type : Number,
-        required:[false,'age required'],
+        required:true,
         min:[18 , 'age should be greator than 18'],
     },
     gender : {
         type : String,
-        required:[true,'Enter gender'],
-        enum :{values: ['Male', 'Female' , 'Gender'], message: `Value is not supported`} ,
+        required:true, 
+        enum :{values: ['Male', 'Female' , 'Other'], message: `Value is not supported`} ,
     },
     skills:{
         type : [String] ,
@@ -47,6 +48,11 @@ const userSchema = mongoose.Schema({
     photoURL :{
         type:String,
         required:false,
+    },
+    about :{
+        type: String,
+        required:false,
+        maxlength:[300,'Only add Upto 300 words']
     }
 },
 {
